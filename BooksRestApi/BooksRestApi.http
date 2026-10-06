@@ -2,3 +2,7 @@
 
 GET {{rootURL}}/api/books
 Accept: application/json
+
+###
+GET {{rootURL}}/api/books/2
+Accept: aaplication/json

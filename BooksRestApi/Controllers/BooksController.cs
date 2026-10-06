@@ -46,5 +46,17 @@ namespace BooksRestApi.Controllers
         {
             return Ok(books);
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Book> GetBookById(int id)
+        {
+            var book = books.FirstOrDefault(x => x.Id == id);
+            if(book == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(book);
+        }
     }
 }

@@ -5,4 +5,26 @@ Accept: application/json
 
 ###
 GET {{rootURL}}/api/books/2
-Accept: aaplication/json
+Accept: application/json
+
+###
+POST {{rootURL}}/api/books
+Content-type: application/json
+{
+  "id": 5,
+  "title": "História Concisa de Portugal",
+  "author": "José Hermano Saraiva",
+  "yearPublished": 1976
+}
+
+###
+PUT {{rootURL}}/api/books/4
+Content-Type: application/json
+{
+  "title": "Portugal – Os Últimos 100 Anos",
+  "author": "José Hermano Saraiva",
+  "yearPublished": 1996
+}
+
+###
+DELETE {{rootURL}}/api/books/3

@@ -58,5 +58,44 @@ namespace BooksRestApi.Controllers
 
             return Ok(book);
         }
+
+        [HttpPost]
+        public ActionResult<Book> AddBook(Book newBook)
+        {
+            if (newBook == null)
+                return BadRequest(newBook);
+
+            books.Add(newBook);
+
+            return CreatedAtAction(nameof(GetBookById), new { id = newBook.Id }, newBook);
+        }
+
+        //The return type is an IActionResult because it will only return status codes, not objects
+        [HttpPut("{id}")]
+        public IActionResult UpdateBook(int id, Book updatedBook)
+        {
+            var book = books.FirstOrDefault(x => x.Id == id);
+            if (book == null)
+                return NotFound();
+
+            book.Title = updatedBook.Title;
+            book.Author = updatedBook.Author;
+            book.YearPublished = updatedBook.YearPublished;
+
+            return NoContent();
+        }
+
+        //The return type is an IActionResult because it will only return status codes, not objects
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBook(int id)
+        {
+            var book = books.FirstOrDefault(x => x.Id == id);
+            if (book == null)
+                return NotFound();
+
+            books.Remove(book);
+            return NoContent();
+        }
     }
 }

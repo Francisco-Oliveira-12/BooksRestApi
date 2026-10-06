@@ -11,7 +11,6 @@ Accept: application/json
 POST {{rootURL}}/api/books
 Content-type: application/json
 {
-  "id": 5,
   "title": "História Concisa de Portugal",
   "author": "José Hermano Saraiva",
   "yearPublished": 1976
